@@ -1,0 +1,28 @@
+
+service: show-me-a-dog
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: ca-central-1
+
+functions:
+  list:
+    handler: handler.list
+    events:
+      - http:
+          path: show
+          method: get
+  show:
+    handler: handler.show
+    events:
+      - http:
+          path: show/{breed}
+          method: get
