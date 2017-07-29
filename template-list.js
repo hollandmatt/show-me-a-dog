@@ -8,7 +8,7 @@ module.exports = `
     <div>
       <ul>
         {{#each breeds}}
-          <li>{{this}}</li>
+          <li><a href="{{this}}">{{this}}</a></li>
         {{/each}}
       </ul>
     </div>
