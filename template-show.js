@@ -2,6 +2,7 @@ module.exports = `
 <html>
   <head>
     <title>Show Me A Dog</title>
+    <style>{{{css}}}</style>
   </head>
   <body>
     <h1>Here is your {{breed}}!</h1>

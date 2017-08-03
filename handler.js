@@ -2,11 +2,14 @@
 
 const fetch = require('isomorphic-unfetch');
 const Handlebars = require('handlebars');
+const uglifycss = require('uglifycss');
 
 const templateListSource = require('./template-list');
 const templateList = Handlebars.compile(templateListSource);
 const templateShowSource = require('./template-show');
 const templateShow = Handlebars.compile(templateShowSource);
+
+const css = uglifycss.processFiles(['style.css']);
 
 module.exports.list = (event, context, callback) => {
   fetch('https://dog.ceo/api/breeds/list/all').then((response) => {
@@ -15,7 +18,8 @@ module.exports.list = (event, context, callback) => {
     const breedNames = Object.keys(json.message);
 
     const context = {
-      breeds: breedNames
+      breeds: breedNames,
+      css
     };
 
     const html = templateList(context);
@@ -40,6 +44,7 @@ module.exports.show = (event, context, callback) => {
   }).then((json) => {
     const context = {
       breed,
+      css,
       image: json.message
     };
 
