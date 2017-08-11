@@ -8,8 +8,8 @@
     "start": "serverless offline"
   },
   "author": {
-    "name" : "Matt Holland",
-    "url" : "http://mattholland.info/"
+    "name": "Matt Holland",
+    "url": "http://mattholland.info/"
   },
   "license": "MIT",
   "dependencies": {
