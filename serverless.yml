@@ -14,11 +14,11 @@ functions:
     handler: handler.list
     events:
       - http:
-          path: show
+          path: /
           method: get
   show:
     handler: handler.show
     events:
       - http:
-          path: show/{breed}
+          path: /{breed}
           method: get
